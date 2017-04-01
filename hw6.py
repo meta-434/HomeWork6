@@ -34,8 +34,8 @@ for line in file_obj:
     #I had to make sure I didn't try to access a list item that
     #didn't exist.
     if lastWord == split_line[0]:
-        print('Found word: %r on line %r.' % (lastWord, line_counter))
+        print('Found word: "%s" on line %d.' % (lastWord, line_counter))
     for x in range(0, len(split_line) - 1):
         if split_line[x] == split_line[x + 1]:
-            print('Found word: %r on line %r.' % (split_line[x], line_counter))
+            print('Found word: "%s" on line %d.' % (split_line[x], line_counter))
     lastWord = split_line[-1]
