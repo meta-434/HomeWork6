@@ -21,28 +21,21 @@
 #
 # <Alex Hapgood>
 # -----------------------------------------------------------------------
-# see line 44 for why I included 'try:'
-try:
-    file_name = input('Enter file name: ')
-    file_obj = open(file_name, 'r')
-    split_line = []
-    line_counter = 0
-    lastWord = ''
+file_name = input('Enter file name: ')
+file_obj = open(file_name, 'r')
+split_line = []
+line_counter = 0
+lastWord = ''
 
-    for line in file_obj:
-        split_line = line.split()
-        line_counter += 1
-        #since index = length -1, and we're already looking +1.
-        #I had to make sure I didn't try to access a list item that
-        #didn't exist.
-        if lastWord == split_line[0]:
-            print('Found word: %r on line %r.' % (lastWord, line_counter))
-        for x in range(0, len(split_line) - 1):
-            if split_line[x] == split_line[x + 1]:
-                print('Found word: %r on line %r.' % (split_line[x], line_counter))
-        lastWord = split_line[-1]
-
-
-#Throwing intelligible errors for bad file names / input.
-except BaseException as error:
-    print('An exception occurred: {}'.format(error))
+for line in file_obj:
+    split_line = line.split()
+    line_counter += 1
+    #since index = length -1, and we're already looking +1.
+    #I had to make sure I didn't try to access a list item that
+    #didn't exist.
+    if lastWord == split_line[0]:
+        print('Found word: %r on line %r.' % (lastWord, line_counter))
+    for x in range(0, len(split_line) - 1):
+        if split_line[x] == split_line[x + 1]:
+            print('Found word: %r on line %r.' % (split_line[x], line_counter))
+    lastWord = split_line[-1]
